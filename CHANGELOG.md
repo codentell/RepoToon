@@ -1,17 +1,22 @@
 # Changelog
 
-## v0.2.0 — The Breaking Storm
+Release notes here are drawn from real Guild.ai platform capabilities
+(https://docs.guild.ai/) — each release dramatizes a slice of the sponsor's
+infrastructure that RepoToon itself runs on.
 
-- feat: episode hub page with automatic episode listing
-- feat: panel-level changelog citations
-- fix: crash when a release body contained more than 64 entries
-- fix: memory leak in the renderer made long episodes unreadable
-- BREAKING CHANGE: episode config migrated from JSON to TOML; `repotoon.json` is no longer read
+## v0.2.0 — The Guild Awakens
+
+- feat: webhook triggers — agents now fire autonomously when GitHub events occur (https://docs.guild.ai/platform/triggers)
+- feat: GitHub integration toolset — agents can read repos and commit files directly (https://docs.guild.ai/integrations/github)
+- feat: Agent Hub — publish validated agent versions for the whole organization (https://docs.guild.ai/platform/publish-to-agent-hub)
+- feat: sessions — watch every agent run live, tool call by tool call (https://docs.guild.ai/platform/sessions)
+- fix: credentials — third-party auth is now centralized, slaying the scattered-API-key hydra (https://docs.guild.ai/platform/credentials)
+- BREAKING CHANGE: manual release-note reading is deprecated; all changelogs must now be consumed as webtoon episodes
 - chore: bump dependencies
 
 ## v0.1.0 — First Panel
 
-- feat: dramatize GitHub release notes into webtoon panels
-- feat: autonomous publish to GitHub Pages on every release
-- fix: dialogue bubbles overflowed narrow panels
+- feat: skills — reusable domain knowledge agents activate on demand (https://docs.guild.ai/platform/skills)
+- feat: workspaces — shared environments where teams and agents collaborate (https://docs.guild.ai/platform/workspaces)
+- fix: context — workspace background knowledge no longer has to be re-explained to every agent (https://docs.guild.ai/platform/context)
 - chore: initial CI setup

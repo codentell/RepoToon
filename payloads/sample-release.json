@@ -4,7 +4,7 @@
     "tag_name": "v0.1.0",
     "name": "First Panel",
     "published_at": "2026-06-12T20:00:00Z",
-    "body": "- feat: dramatize GitHub release notes into webtoon panels\n- feat: autonomous publish to GitHub Pages on every release\n- fix: dialogue bubbles overflowed narrow panels\n- chore: initial CI setup"
+    "body": "- feat: skills — reusable domain knowledge agents activate on demand (https://docs.guild.ai/platform/skills)\n- feat: workspaces — shared environments where teams and agents collaborate (https://docs.guild.ai/platform/workspaces)\n- fix: context — workspace background knowledge no longer has to be re-explained to every agent (https://docs.guild.ai/platform/context)\n- chore: initial CI setup"
   },
   "repository": {
     "full_name": "codentell/RepoToon",

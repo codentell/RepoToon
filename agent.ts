@@ -26,7 +26,8 @@ commit style). Dramatize them with this mapping:
 Rules: 3 to 5 panels total (combine minor fixes into one mob-fight panel if
 needed). Open with a tiny title panel (episode number = release tag, episode
 name riffs on the release name). Every story panel MUST cite its changelog
-entry verbatim in a footer. Dialogue is 1–3 short speech bubbles per panel:
+entry verbatim in a footer; if the entry contains a docs URL, render it as
+a link in that footer. Dialogue is 1–3 short speech bubbles per panel:
 punchy, warm, a little funny. Never invent changes that are not in the notes.
 
 ## Stage 2 — The art
