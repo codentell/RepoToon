@@ -1,0 +1,40 @@
+name: RepoToon
+
+# Paste a GitHub release page URL and this workflow asks the autonomous
+# Release Arc agent (on Guild.ai) to turn it into a webtoon episode.
+#
+# How it works:
+#   1. This job publishes a small "toon request" release on THIS repo whose
+#      body is the release URL you pasted.
+#   2. Guild's "release published" webhook fires the release-arc agent.
+#   3. The agent fetches the linked release's notes, draws a 4-panel webtoon,
+#      and commits docs/episodes/<slug>.html.
+#   4. GitHub Pages shows it on the index at /RepoToon/.
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_url:
+        description: "GitHub release page URL to toon (e.g. https://github.com/ComposioHQ/composio/releases/tag/@composio/cli@0.2.31)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  request-toon:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish a toon request release (fires the Guild webhook)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_URL: ${{ inputs.release_url }}
+        run: |
+          TAG="toon-${{ github.run_number }}"
+          gh release create "$TAG" \
+            --repo "${{ github.repository }}" \
+            --title "Toon request #${{ github.run_number }}" \
+            --notes "$RELEASE_URL"
+          echo "Requested a webtoon for: $RELEASE_URL"
+          echo "Watch it appear at https://codentell.github.io/RepoToon/"
