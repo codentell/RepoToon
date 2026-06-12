@@ -34,22 +34,35 @@
      subscribed to <a href="https://github.com/codentell/RepoToon">codentell/RepoToon</a> releases</p>
 </div>
 <script>
-  fetch('https://api.github.com/repos/codentell/RepoToon/contents/docs/episodes')
+  const REPO = 'codentell/RepoToon';
+  const el = document.getElementById('episodes');
+
+  // Order episodes by when each was committed (i.e. when the trigger fired),
+  // newest first — NOT alphabetically by filename.
+  fetch(`https://api.github.com/repos/${REPO}/contents/docs/episodes`)
     .then(r => r.ok ? r.json() : [])
-    .then(files => {
-      const eps = (Array.isArray(files) ? files : [])
-        .filter(f => f.name.endsWith('.html'))
-        .map(f => f.name.replace('.html',''))
-        .sort().reverse();
-      const el = document.getElementById('episodes');
-      if (!eps.length) { el.innerHTML = '<p class="empty">No episodes yet — publish a release and watch this space.</p>'; return; }
-      el.innerHTML = eps.map((tag, i) =>
-        `<a class="ep" href="episodes/${tag}.html">
-           <div class="num">Episode ${eps.length - i} · ${tag}</div>
-           <div class="title">Read the ${tag} saga →</div>
+    .then(async files => {
+      const htmls = (Array.isArray(files) ? files : []).filter(f => f.name.endsWith('.html'));
+      if (!htmls.length) { el.innerHTML = '<p class="empty">No episodes yet — fire the workflow and watch this space.</p>'; return; }
+      // Fetch the most recent commit date for each episode file.
+      const withDates = await Promise.all(htmls.map(async f => {
+        let date = '';
+        try {
+          const c = await fetch(`https://api.github.com/repos/${REPO}/commits?path=docs/episodes/${encodeURIComponent(f.name)}&per_page=1`).then(r => r.json());
+          date = c?.[0]?.commit?.committer?.date || c?.[0]?.commit?.author?.date || '';
+        } catch (e) {}
+        return { slug: f.name.replace('.html',''), date };
+      }));
+      // newest first; episodes with a known date sort before undated ones
+      withDates.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      const n = withDates.length;
+      el.innerHTML = withDates.map((ep, i) =>
+        `<a class="ep" href="episodes/${ep.slug}.html">
+           <div class="num">Episode ${n - i} · ${ep.slug}</div>
+           <div class="title">Read the ${ep.slug} saga →</div>
          </a>`).join('');
     })
-    .catch(() => { document.getElementById('episodes').innerHTML = '<p class="empty">Could not load episodes.</p>'; });
+    .catch(() => { el.innerHTML = '<p class="empty">Could not load episodes.</p>'; });
 </script>
 </body>
 </html>
