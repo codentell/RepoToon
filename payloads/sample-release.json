@@ -2,9 +2,9 @@
   "action": "published",
   "release": {
     "tag_name": "v0.1.0",
-    "name": "First Panel",
+    "name": "Composio CLI beta.254 — The Hour of Expiry",
     "published_at": "2026-06-12T20:00:00Z",
-    "body": "- feat: skills — reusable domain knowledge agents activate on demand (https://docs.guild.ai/platform/skills)\n- feat: workspaces — shared environments where teams and agents collaborate (https://docs.guild.ai/platform/workspaces)\n- fix: context — workspace background knowledge no longer has to be re-explained to every agent (https://docs.guild.ai/platform/context)\n- chore: initial CI setup"
+    "body": "Dramatized from the real release: https://github.com/ComposioHQ/composio/releases/tag/%40composio%2Fcli%400.2.31-beta.254\n\n* fix(python): guard enhance_schema_descriptions against empty schemas in https://github.com/ComposioHQ/composio/pull/3398\n* fix(cli): make permission allows expire after one hour in https://github.com/ComposioHQ/composio/pull/3449\n* feat(cli): send x-cli-session-id header on every request in https://github.com/ComposioHQ/composio/pull/3430"
   },
   "repository": {
     "full_name": "codentell/RepoToon",

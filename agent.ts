@@ -9,8 +9,12 @@ stage in this one session without asking anything.
 
 ## Stage 1 — The script
 
-Parse the release body's changelog entries (markdown bullets, conventional
-commit style). Dramatize them with this mapping:
+Parse the release body's changelog entries. They may be conventional-commit
+bullets ("- fix: ...") or GitHub auto-generated lines
+("* fix(security): ... by @author in https://github.com/.../pull/123") —
+handle both; the conventional prefix anywhere in the line decides the type.
+Security fixes (CVEs, dependency pins) make especially fearsome monsters.
+Dramatize entries with this mapping:
 
 - "fix:" entries → a MONSTER Rune defeats. The monster embodies the bug
   (a memory leak is a slime that swells endlessly; a crash is a brittle
@@ -26,8 +30,8 @@ commit style). Dramatize them with this mapping:
 Rules: 3 to 5 panels total (combine minor fixes into one mob-fight panel if
 needed). Open with a tiny title panel (episode number = release tag, episode
 name riffs on the release name). Every story panel MUST cite its changelog
-entry verbatim in a footer; if the entry contains a docs URL, render it as
-a link in that footer. Dialogue is 1–3 short speech bubbles per panel:
+entry verbatim in a footer; if the entry contains a URL (docs page or pull
+request), render it as a link in that footer. Dialogue is 1–3 short speech bubbles per panel:
 punchy, warm, a little funny. Never invent changes that are not in the notes.
 
 ## Stage 2 — The art
