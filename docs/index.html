@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RepoToon — The Saga</title>
+<style>
+  :root { --bg:#0d0e1a; --card:#181a2e; --ink:#e8e6f0; --accent:#7c6cff; --gold:#ffd166; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--ink); font-family:Georgia, 'Times New Roman', serif; min-height:100vh; }
+  .wrap { max-width:720px; margin:0 auto; padding:48px 20px; }
+  h1 { font-size:2.6rem; letter-spacing:1px; text-align:center; }
+  h1 .accent { color:var(--accent); }
+  .tagline { text-align:center; color:#9a96b8; margin-top:10px; font-style:italic; }
+  .sub { text-align:center; margin-top:6px; font-size:.85rem; color:#666a8a; font-family:ui-monospace, monospace; }
+  .episodes { margin-top:48px; display:flex; flex-direction:column; gap:16px; }
+  a.ep { display:block; background:var(--card); border:1px solid #2a2d4a; border-radius:12px;
+         padding:22px 26px; text-decoration:none; color:var(--ink); transition:transform .15s, border-color .15s; }
+  a.ep:hover { transform:translateX(6px); border-color:var(--accent); }
+  a.ep .num { color:var(--gold); font-family:ui-monospace, monospace; font-size:.8rem; letter-spacing:2px; text-transform:uppercase; }
+  a.ep .title { font-size:1.35rem; margin-top:6px; }
+  .empty { text-align:center; color:#666a8a; margin-top:40px; }
+  .foot { margin-top:64px; text-align:center; font-size:.8rem; color:#555876; }
+  .foot a { color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📖 Repo<span class="accent">Toon</span></h1>
+  <p class="tagline">Nobody reads release notes. Everybody reads webtoons.</p>
+  <p class="sub">every episode below was written, drawn &amp; published autonomously by an agent on Guild.ai</p>
+  <div class="episodes" id="episodes"><p class="empty">Loading the saga…</p></div>
+  <p class="foot">An autonomous studio agent on <a href="https://guild.ai">Guild.ai</a> ·
+     subscribed to <a href="https://github.com/codentell/RepoToon">codentell/RepoToon</a> releases</p>
+</div>
+<script>
+  fetch('https://api.github.com/repos/codentell/RepoToon/contents/docs/episodes')
+    .then(r => r.ok ? r.json() : [])
+    .then(files => {
+      const eps = (Array.isArray(files) ? files : [])
+        .filter(f => f.name.endsWith('.html'))
+        .map(f => f.name.replace('.html',''))
+        .sort().reverse();
+      const el = document.getElementById('episodes');
+      if (!eps.length) { el.innerHTML = '<p class="empty">No episodes yet — publish a release and watch this space.</p>'; return; }
+      el.innerHTML = eps.map((tag, i) =>
+        `<a class="ep" href="episodes/${tag}.html">
+           <div class="num">Episode ${eps.length - i} · ${tag}</div>
+           <div class="title">Read the ${tag} saga →</div>
+         </a>`).join('');
+    })
+    .catch(() => { document.getElementById('episodes').innerHTML = '<p class="empty">Could not load episodes.</p>'; });
+</script>
+</body>
+</html>

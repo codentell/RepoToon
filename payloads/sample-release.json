@@ -1,0 +1,13 @@
+{
+  "action": "published",
+  "release": {
+    "tag_name": "v0.1.0",
+    "name": "First Panel",
+    "published_at": "2026-06-12T20:00:00Z",
+    "body": "- feat: dramatize GitHub release notes into webtoon panels\n- feat: autonomous publish to GitHub Pages on every release\n- fix: dialogue bubbles overflowed narrow panels\n- chore: initial CI setup"
+  },
+  "repository": {
+    "full_name": "codentell/RepoToon",
+    "html_url": "https://github.com/codentell/RepoToon"
+  }
+}
