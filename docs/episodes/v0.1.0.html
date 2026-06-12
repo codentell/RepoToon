@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RepoToon — v0.1.0 · First Panel</title>
+<style>
+  :root{--bg:#0d0e1a;--panel:#181a2e;--ink:#e8e6f0;--teal:#2dd4bf;--violet:#7c6cff;--gold:#ffd166;--red:#ef476f;--muted:#7a7d9c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman',serif;}
+  .col{max-width:760px;margin:0 auto;padding:40px 18px 80px;}
+  .head{text-align:center;margin-bottom:36px;}
+  .head .tag{font-family:ui-monospace,monospace;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:.8rem;}
+  .head h1{font-size:2.2rem;margin-top:8px;}
+  .head .date{color:var(--muted);font-style:italic;margin-top:6px;font-size:.9rem;}
+  .panel{background:var(--panel);border:1px solid #2a2d4a;border-radius:14px;overflow:hidden;margin-bottom:26px;}
+  .panel svg{display:block;width:100%;height:auto;background:#10111f;}
+  .bubbles{padding:18px 20px 6px;display:flex;flex-direction:column;gap:10px;}
+  .bub{position:relative;align-self:flex-start;max-width:90%;background:var(--ink);color:#15172a;
+       padding:10px 14px;border-radius:14px;font-family:'Comic Sans MS',system-ui,sans-serif;font-size:.98rem;line-height:1.35;}
+  .bub.right{align-self:flex-end;background:var(--teal);}
+  .bub::after{content:"";position:absolute;bottom:-7px;left:18px;border:7px solid transparent;border-top-color:var(--ink);border-bottom:0;}
+  .bub.right::after{left:auto;right:18px;border-top-color:var(--teal);}
+  .cite{padding:8px 20px 18px;color:var(--muted);font-size:.78rem;font-family:ui-monospace,monospace;border-top:1px solid #23263f;margin-top:10px;}
+  .cite a{color:var(--violet);}
+  .foot{text-align:center;color:var(--muted);font-size:.82rem;margin-top:30px;line-height:1.7;}
+  .foot a{color:var(--teal);}
+</style>
+</head>
+<body>
+<div class="col">
+  <div class="head">
+    <div class="tag">Episode 1 · v0.1.0</div>
+    <h1>First Panel</h1>
+    <div class="date">Published 2026-06-12 · drawn from the release notes</div>
+  </div>
+
+  <!-- Panel 1: title / hero intro -->
+  <div class="panel">
+    <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="450" fill="#181a2e"/>
+      <rect x="0" y="360" width="800" height="90" fill="#10111f"/>
+      <!-- pillars -->
+      <rect x="70" y="120" width="40" height="240" fill="#23263f" stroke="#0d0e1a" stroke-width="3"/>
+      <rect x="690" y="120" width="40" height="240" fill="#23263f" stroke="#0d0e1a" stroke-width="3"/>
+      <!-- Rune the patch-knight -->
+      <g transform="translate(360,180)">
+        <!-- cloak -->
+        <path d="M-46 60 L46 60 L34 200 L-34 200 Z" fill="#2dd4bf" stroke="#0d0e1a" stroke-width="3"/>
+        <!-- body -->
+        <rect x="-30" y="60" width="60" height="120" rx="14" fill="#374151" stroke="#0d0e1a" stroke-width="3"/>
+        <!-- head -->
+        <circle cx="0" cy="20" r="40" fill="#e8d4b0" stroke="#0d0e1a" stroke-width="3"/>
+        <!-- helmet -->
+        <path d="M-42 14 A42 42 0 0 1 42 14 L42 2 A42 42 0 0 0 -42 2 Z" fill="#c0c6d4" stroke="#0d0e1a" stroke-width="3"/>
+        <!-- antenna -->
+        <path d="M0 -38 Q18 -64 8 -78" fill="none" stroke="#0d0e1a" stroke-width="3"/>
+        <circle cx="8" cy="-80" r="6" fill="#ffd166" stroke="#0d0e1a" stroke-width="2"/>
+        <!-- eyes -->
+        <circle cx="-13" cy="22" r="4.5" fill="#0d0e1a"/>
+        <circle cx="13" cy="22" r="4.5" fill="#0d0e1a"/>
+        <!-- semicolon blade -->
+        <g transform="translate(70,40)">
+          <rect x="-6" y="-90" width="12" height="120" rx="6" fill="#ffd166" stroke="#0d0e1a" stroke-width="3"/>
+          <circle cx="0" cy="-96" r="10" fill="#ffd166" stroke="#0d0e1a" stroke-width="3"/>
+          <circle cx="0" cy="36" r="9" fill="#ffd166" stroke="#0d0e1a" stroke-width="3"/>
+          <path d="M0 45 q-6 14 -10 20" fill="none" stroke="#ffd166" stroke-width="6" stroke-linecap="round"/>
+        </g>
+      </g>
+    </svg>
+    <div class="bubbles">
+      <div class="bub">A new saga begins in the Repo Realm…</div>
+      <div class="bub right">I'm Rune, the patch-knight. Every release, a new chapter. Let's read the notes — together.</div>
+    </div>
+  </div>
+
+  <!-- Panel 2: feature ally — dramatize releases -->
+  <div class="panel">
+    <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="450" fill="#181a2e"/>
+      <rect x="0" y="360" width="800" height="90" fill="#10111f"/>
+      <!-- ally: the Loremancer (violet robed figure with a scroll) -->
+      <g transform="translate(540,170)">
+        <path d="M-50 70 L50 70 L40 210 L-40 210 Z" fill="#7c6cff" stroke="#0d0e1a" stroke-width="3"/>
+        <circle cx="0" cy="30" r="38" fill="#e8d4b0" stroke="#0d0e1a" stroke-width="3"/>
+        <path d="M-40 24 A40 40 0 0 1 40 24 L34 -2 L-34 -2 Z" fill="#5b4fd6" stroke="#0d0e1a" stroke-width="3"/>
+        <circle cx="-12" cy="32" r="4" fill="#0d0e1a"/><circle cx="12" cy="32" r="4" fill="#0d0e1a"/>
+        <!-- glowing scroll -->
+        <rect x="-90" y="110" width="56" height="74" rx="8" fill="#ffd166" stroke="#0d0e1a" stroke-width="3"/>
+        <line x1="-80" y1="128" x2="-44" y2="128" stroke="#0d0e1a" stroke-width="3"/>
+        <line x1="-80" y1="144" x2="-44" y2="144" stroke="#0d0e1a" stroke-width="3"/>
+        <line x1="-80" y1="160" x2="-58" y2="160" stroke="#0d0e1a" stroke-width="3"/>
+      </g>
+      <!-- Rune (small, left) -->
+      <g transform="translate(210,210) scale(0.8)">
+        <rect x="-28" y="40" width="56" height="110" rx="14" fill="#374151" stroke="#0d0e1a" stroke-width="3"/>
+        <path d="M-44 40 L44 40 L34 150 L-34 150 Z" fill="#2dd4bf" stroke="#0d0e1a" stroke-width="3"/>
+        <circle cx="0" cy="2" r="36" fill="#e8d4b0" stroke="#0d0e1a" stroke-width="3"/>
+        <path d="M-38 -4 A38 38 0 0 1 38 -4 L38 -14 A38 38 0 0 0 -38 -14 Z" fill="#c0c6d4" stroke="#0d0e1a" stroke-width="3"/>
+        <circle cx="-12" cy="4" r="4" fill="#0d0e1a"/><circle cx="12" cy="4" r="4" fill="#0d0e1a"/>
+      </g>
+      <text x="610" y="70" font-family="Comic Sans MS,sans-serif" font-size="34" fill="#ffd166" stroke="#0d0e1a" stroke-width="1" transform="rotate(-8 610 70)">✦ JOIN! ✦</text>
+    </svg>
+    <div class="bubbles">
+      <div class="bub right">A new ally! The Loremancer — she turns dry release notes into living panels.</div>
+      <div class="bub">No one read the scrolls before. Now they'll <em>read the comic.</em></div>
+    </div>
+    <div class="cite">source: feat: dramatize GitHub release notes into webtoon panels</div>
+  </div>
+
+  <!-- Panel 3: feature ally — autonomous publish -->
+  <div class="panel">
+    <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="450" fill="#181a2e"/>
+      <rect x="0" y="360" width="800" height="90" fill="#10111f"/>
+      <!-- the Herald: winged messenger -->
+      <g transform="translate(400,200)">
+        <path d="M-120 0 Q-60 -60 -10 -10 Z" fill="#2dd4bf" stroke="#0d0e1a" stroke-width="3"/>
+        <path d="M120 0 Q60 -60 10 -10 Z" fill="#2dd4bf" stroke="#0d0e1a" stroke-width="3"/>
+        <rect x="-26" y="-10" width="52" height="100" rx="14" fill="#374151" stroke="#0d0e1a" stroke-width="3"/>
+        <circle cx="0" cy="-40" r="34" fill="#e8d4b0" stroke="#0d0e1a" stroke-width="3"/>
+        <circle cx="-11" cy="-40" r="4" fill="#0d0e1a"/><circle cx="11" cy="-40" r="4" fill="#0d0e1a"/>
+        <!-- envelope -->
+        <rect x="-30" y="96" width="60" height="40" rx="5" fill="#ffd166" stroke="#0d0e1a" stroke-width="3"/>
+        <path d="M-30 100 L0 120 L30 100" fill="none" stroke="#0d0e1a" stroke-width="3"/>
+      </g>
+      <text x="150" y="120" font-family="Comic Sans MS,sans-serif" font-size="30" fill="#ffd166" transform="rotate(-10 150 120)">WHOOSH!</text>
+    </svg>
+    <div class="bubbles">
+      <div class="bub right">And the Herald — the moment a release lands, he flies the new episode to the world. No hands needed.</div>
+      <div class="bub">Autonomous. Every release, published while you sleep.</div>
+    </div>
+    <div class="cite">source: feat: autonomous publish to GitHub Pages on every release</div>
+  </div>
+
+  <!-- Panel 4: bug monster — dialogue bubble overflow -->
+  <div class="panel">
+    <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="450" fill="#181a2e"/>
+      <rect x="0" y="360" width="800" height="90" fill="#10111f"/>
+      <!-- the Bubble Slime: a swollen blob overflowing its frame -->
+      <g transform="translate(520,230)">
+        <path d="M-110 60 Q-150 -60 -30 -90 Q60 -110 110 -30 Q150 60 60 80 Q-30 100 -110 60 Z"
+              fill="#ef476f" stroke="#0d0e1a" stroke-width="3"/>
+        <circle cx="-30" cy="-20" r="12" fill="#fff"/><circle cx="-26" cy="-16" r="5" fill="#0d0e1a"/>
+        <circle cx="34" cy="-14" r="12" fill="#fff"/><circle cx="38" cy="-10" r="5" fill="#0d0e1a"/>
+        <path d="M-20 28 Q10 50 44 26" fill="none" stroke="#0d0e1a" stroke-width="3"/>
+        <!-- overflow drips -->
+        <circle cx="-120" cy="78" r="10" fill="#ef476f" stroke="#0d0e1a" stroke-width="2"/>
+        <circle cx="120" cy="70" r="8" fill="#ef476f" stroke="#0d0e1a" stroke-width="2"/>
+      </g>
+      <!-- Rune striking -->
+      <g transform="translate(230,210)">
+        <rect x="-28" y="40" width="56" height="110" rx="14" fill="#374151" stroke="#0d0e1a" stroke-width="3"/>
+        <path d="M-44 40 L44 40 L34 150 L-34 150 Z" fill="#2dd4bf" stroke="#0d0e1a" stroke-width="3"/>
+        <circle cx="0" cy="2" r="36" fill="#e8d4b0" stroke="#0d0e1a" stroke-width="3"/>
+        <path d="M-38 -4 A38 38 0 0 1 38 -4 L38 -14 A38 38 0 0 0 -38 -14 Z" fill="#c0c6d4" stroke="#0d0e1a" stroke-width="3"/>
+        <circle cx="-12" cy="4" r="4" fill="#0d0e1a"/><circle cx="12" cy="4" r="4" fill="#0d0e1a"/>
+        <!-- blade slash -->
+        <rect x="40" y="-70" width="12" height="150" rx="6" fill="#ffd166" stroke="#0d0e1a" stroke-width="3" transform="rotate(35 46 5)"/>
+      </g>
+      <text x="430" y="90" font-family="Comic Sans MS,sans-serif" font-size="40" fill="#ffd166" stroke="#0d0e1a" stroke-width="1.5" transform="rotate(-6 430 90)">POP!</text>
+    </svg>
+    <div class="bubbles">
+      <div class="bub">The Bubble Slime! It swells past every frame, drowning the words!</div>
+      <div class="bub right">Not in my panels. Contained — and trimmed to fit.</div>
+    </div>
+    <div class="cite">source: fix: dialogue bubbles overflowed narrow panels</div>
+  </div>
+
+  <div class="foot">
+    Drawn &amp; published autonomously by <strong>Release Arc</strong> on
+    <a href="https://guild.ai">Guild.ai</a><br>
+    <a href="../index.html">← All episodes</a>
+  </div>
+</div>
+</body>
+</html>
